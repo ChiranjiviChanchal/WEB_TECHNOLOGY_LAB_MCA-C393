@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container form input[type="text"],
+        .container form input[type="password"],
+        .container form input[type="email"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .container form input[type="submit"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 3px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        .container form input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .message {
+            text-align: center;
+            color: green;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var username = document.forms["regForm"]["username"].value;
+            var password = document.forms["regForm"]["password"].value;
+            var email = document.forms["regForm"]["email"].value;
+            
+            if (username == "") {
+                alert("Username must be filled out");
+                return false;
+            }
+            if (password == "") {
+                alert("Password must be filled out");
+                return false;
+            }
+            if (email == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            if (!validateEmail(email)) {
+                alert("Invalid email format");
+                return false;
+            }
+            document.getElementById("message").innerHTML = "Data Successfully Saved!";
+            return false; // Prevent actual form submission
+        }
+
+        function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <div id="message" class="message"></div>
+        <form name="regForm" onsubmit="return validateForm()">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="email" name="email" placeholder="Email">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
