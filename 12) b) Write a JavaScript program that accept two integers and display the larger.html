@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare Two Integers</title>
+    <script>
+        function compareIntegers() {
+            // Get the values of the two integers from the input fields
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+
+            // Check if the inputs are valid numbers
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid integers.");
+                return;
+            }
+
+            // Determine and display the larger number
+            if (num1 > num2) {
+                document.getElementById("result").textContent = `The larger number is: ${num1}`;
+            } else if (num2 > num1) {
+                document.getElementById("result").textContent = `The larger number is: ${num2}`;
+            } else {
+                document.getElementById("result").textContent = "Both numbers are equal.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Compare Two Integers</h2>
+    <label for="num1">Enter first integer:</label>
+    <input type="number" id="num1" name="num1">
+    <br>
+    <label for="num2">Enter second integer:</label>
+    <input type="number" id="num2" name="num2">
+    <br><br>
+    <button onclick="compareIntegers()">Compare</button>
+    <p id="result"></p>
+</body>
+</html>
