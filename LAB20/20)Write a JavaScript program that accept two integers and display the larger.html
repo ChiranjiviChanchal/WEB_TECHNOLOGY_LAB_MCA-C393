@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the Larger Integer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find the Larger of Two Integers</h1>
+    <label for="num1">Enter first integer: </label>
+    <input type="number" id="num1"><br><br>
+    <label for="num2">Enter second integer: </label>
+    <input type="number" id="num2"><br><br>
+    <button onclick="findLarger()">Find Larger</button>
+    <p id="result"></p>
+
+    <script>
+        function findLarger() {
+            // Get the values of the two integers from the user input
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+
+            // Find the larger number using Math.max()
+            var larger = Math.max(num1, num2);
+
+            // Display the larger number
+            document.getElementById("result").innerText = "The larger number is: " + larger;
+        }
+    </script>
+</body>
+</html>
