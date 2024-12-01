@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Card</title>
+</head>
+<body>
+
+<form method="post">
+    <label for="marks">Enter your marks:</label>
+    <input type="number" id="marks" name="marks" min="0" max="100" required>
+    <input type="submit" name="submit" value="Get Grade">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    $marks = intval($_POST['marks']);
+    $grade = '';
+
+    switch (true) {
+        case ($marks >= 90):
+            $grade = 'A+';
+            break;
+        case ($marks >= 80):
+            $grade = 'A';
+            break;
+        case ($marks >= 70):
+            $grade = 'B+';
+            break;
+        case ($marks >= 60):
+            $grade = 'B';
+            break;
+        case ($marks >= 50):
+            $grade = 'C';
+            break;
+        case ($marks >= 40):
+            $grade = 'D';
+            break;
+        default:
+            $grade = 'F';
+            break;
+    }
+
+    echo "<h2>Grade Card</h2>";
+    echo "Marks: $marks<br>";
+    echo "Grade: $grade";
+}
+?>
+
+</body>
+</html>
