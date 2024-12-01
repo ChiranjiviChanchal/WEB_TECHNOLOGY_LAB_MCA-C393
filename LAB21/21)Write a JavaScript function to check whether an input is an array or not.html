@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Array Check</title> 
+    <script> 
+        function checkInput() { 
+            const input = document.getElementById('userInput').value; 
+            try { 
+                document.getElementById('result').textContent = Array.isArray(JSON.parse(input)) ? 'It is an array!' : 'It is not an array.'; 
+            } catch { 
+                document.getElementById('result').textContent = 'It is not an array.'; 
+            } 
+        } 
+    </script> 
+</head> 
+<body> 
+    <h1>Check if input is an Array</h1> 
+    <input id="userInput" placeholder='Enter array like "[1,2,3]"'> 
+    <button onclick="checkInput()">Check</button> 
+    <p id="result"></p> 
+</body> 
+</html> 
