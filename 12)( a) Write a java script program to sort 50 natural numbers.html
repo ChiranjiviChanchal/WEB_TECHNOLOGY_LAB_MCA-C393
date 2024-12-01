@@ -1,0 +1,18 @@
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Sort Natural Numbers</title> 
+    <script> 
+        function sortNumbers() { 
+            const numbers = Array.from({ length: 50 }, (_, i) => i + 1); 
+            const sortedNumbers = numbers.sort((a, b) => a - b); 
+            document.getElementById("result").textContent = `Sorted Numbers: ${sortedNumbers.join(", ")}`; 
+        } 
+    </script> 
+</head> 
+<body onload="sortNumbers()"> 
+    <h1>Sorting 50 Natural Numbers</h1> 
+    <p id="result"></p> 
+</body> 
+</html> 
