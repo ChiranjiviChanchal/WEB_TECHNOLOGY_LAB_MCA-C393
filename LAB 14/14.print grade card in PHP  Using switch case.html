@@ -13,36 +13,40 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    $marks = intval($_POST['marks']);
+    $marks = filter_input(INPUT_POST, 'marks', FILTER_VALIDATE_INT);
     $grade = '';
 
-    switch (true) {
-        case ($marks >= 90):
-            $grade = 'A+';
-            break;
-        case ($marks >= 80):
-            $grade = 'A';
-            break;
-        case ($marks >= 70):
-            $grade = 'B+';
-            break;
-        case ($marks >= 60):
-            $grade = 'B';
-            break;
-        case ($marks >= 50):
-            $grade = 'C';
-            break;
-        case ($marks >= 40):
-            $grade = 'D';
-            break;
-        default:
-            $grade = 'F';
-            break;
-    }
+    if ($marks === false) {
+        echo "Invalid marks entered.";
+    } else {
+        switch (true) {
+            case ($marks >= 90):
+                $grade = 'A+';
+                break;
+            case ($marks >= 80):
+                $grade = 'A';
+                break;
+            case ($marks >= 70):
+                $grade = 'B+';
+                break;
+            case ($marks >= 60):
+                $grade = 'B';
+                break;
+            case ($marks >= 50):
+                $grade = 'C';
+                break;
+            case ($marks >= 40):
+                $grade = 'D';
+                break;
+            default:
+                $grade = 'F';
+                break;
+        }
 
-    echo "<h2>Grade Card</h2>";
-    echo "Marks: $marks<br>";
-    echo "Grade: $grade";
+        echo "<h2>Grade Card</h2>";
+        echo "Marks: $marks<br>";
+        echo "Grade: $grade";
+    }
 }
 ?>
 
